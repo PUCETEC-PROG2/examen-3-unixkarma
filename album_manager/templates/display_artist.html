@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title%}Album Manager{% endblock title %}
+
+{% block content  %}
+            
+        <p>El artista es: <strong>{{ trainer | capfirst }}</strong></p>
+            <h3>Datos del Artista:</h3>
+            <ul>
+            <li>Pais de Origen: {{artist.city}}</li>
+            </ul>
+                    <a href ="/">Regresar<a>
+        </div>
+    </body>
+</html>
+
+{% endblock content %}
+

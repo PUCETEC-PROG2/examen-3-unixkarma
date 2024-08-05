@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title%}Album Manager{% endblock title %}
+
+{% block content  %}
+                   
+        <a href="{% url "album_manager:add_album" %}">Crear Disco</a>
+                <div class = "card-group">
+                        {% for album in albums%}
+                                <div class='card'>
+                                        <img src="{{ album.picture.url }}" alt = "" style="max-width: 200px; height: auto;">
+                                        <div class = "card-body">
+                                                <h5 class='card-title'>{{ album }}</h5>
+                                                <p class="card-text">Artista:{{ album.artista }}</p>
+                                                <p class= "card-text">Fecha de Lanzamiento:{{ album.year }}</p>
+                                             <p class= "card-text">Genero:{{ album.genre }}</p>  
+                                                <a href = "album/{{album.id}}" class="btn btn-primary">
+<i class="fa-solid fa-eye"></i>
+                                                </a>
+                                                <a href = "edit_album/{{album.id}}" class="btn btn-secondary">
+                <i class="fa-solid fa-pencil"></i>
+                                                </a>
+                                                <a href = "delete_album/{{album.id}}" class="btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+                                                </a>
+
+
+                                </div>
+                </div>
+                {% endfor %}
+                </div>
+ <div class = "card-group">                                                      
+                        {% for trainer in trainers%}                                            
+                                <div class='card'>                                              
+                                        <img src="{{ artist.picture.url }}" alt = "" style="max-width: 200px; height: auto;">                                                                  
+                                        <div class = "card-body">                               
+                                                <h5 class='card-title'>{{ artist }}</h5>       
+                                                <p class= "card-text">Origen:{{ artist.country }}</p>                                                                                             
+                                                <a href = "album/{{artist.id}}" class="btn btn-primary">                                                                                     
+<i class="fa-solid fa-eye"></i>                                                                 
+                                                </a>                                            
+                                                <a href = "edit_artist/{{artist.id}}" class="btn btn-secondary">                                                                              
+                <i class="fa-solid fa-pencil"></i>                                              
+                                                </a>                                            
+                                                        <a href = "delete_artist/{{artist.id}}" class="btn btn-danger">                                                                                 
+                <i class="fa-solid fa-trash"></i>                                               
+                                                </a>                                            
+                                                                                                
+                                                                                                
+                                </div>                                                          
+                </div>                                                                          
+                {% endfor %}                                                                    
+                </div>     
+                {% endblock content %}
+
