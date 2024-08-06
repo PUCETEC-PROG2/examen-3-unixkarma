@@ -3,10 +3,10 @@
 
 {% block content  %}
             
-        <p>El artista es: <strong>{{ trainer | capfirst }}</strong></p>
+        <p>El artista es: <strong>{{ artist.name | capfirst }}</strong></p>
             <h3>Datos del Artista:</h3>
             <ul>
-            <li>Pais de Origen: {{artist.city}}</li>
+            <li>Pais de Origen: {{artist.country}}</li>
             </ul>
                     <a href ="/">Regresar<a>
         </div>

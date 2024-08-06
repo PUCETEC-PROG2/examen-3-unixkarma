@@ -9,9 +9,9 @@ from album_manager.forms import AlbumForm, ArtistForm
 
 def index(request):
     albums = Album.objects.order_by('year')
-    artists = Artist.objects.order_by('name')
+    artists = Artist.objects.all()
     template = loader.get_template('index.html')
-    return HttpResponse(template.render({'albums': albums}, request))
+    return HttpResponse(template.render({'albums': albums, 'artists': artists}, request))
 
 def album(request, album_id):
     album = get_object_or_404(Album, pk=album_id)
@@ -33,8 +33,6 @@ def add_album(request):
     return render(request, 'album_form.html', {'form':form})
 
 
-class CustomLoginView(LoginView):
-    template_name="login.html"
 
 
 def edit_album(request, id):

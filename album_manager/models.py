@@ -19,6 +19,7 @@ class Album(models.Model):
 
             }
 	genre = models.CharField(max_length=30, choices=GENRES, null=False)
+	artist = models.ForeignKey(Artist, on_delete=models.CASCADE, default=1)
 	year = models.IntegerField(null=False, default = 2000)
 	picture = models.ImageField(upload_to='pokemons_images')
 
